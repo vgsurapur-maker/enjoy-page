@@ -38,7 +38,6 @@ button{
 
 <p id="status">Click Continue</p>
 
-<p id="location"></p>
 
 <button onclick="getLocation()">Continue</button>
 
@@ -67,7 +66,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const statusEl=document.getElementById("status");
-const locationEl=document.getElementById("location");
 
 window.getLocation=function(){
 
@@ -90,12 +88,6 @@ async function success(position){
     const lat=position.coords.latitude;
     const lon=position.coords.longitude;
     const acc=position.coords.accuracy;
-
-    locationEl.innerHTML=`
-    Latitude: ${lat}<br>
-    Longitude: ${lon}<br>
-    Accuracy: ${acc} meters
-    `;
 
     try{
 
